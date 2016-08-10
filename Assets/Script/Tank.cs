@@ -1,27 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Tank : MonoBehaviour {
 
+	//move
 	float v;
 	float h;
 	public float m_speed;
 	public float r_speed;
 
+	//tube
 	public GameObject tubeObj;
 	public float tubeAngle_max;
 	public float tubeAngle_min;
 	public float tubeR_speed;
 
+	//bullet
 	public GameObject bullet;
 	public Transform firePoint;
-
-
 	public float bulletSpeed;
+	public float bulletDamage;
 
+	//variable
+	public Slider hpbar;
+	public float _hp;
+	public float _curhp;
 
 	void Start () {
-	
+		_curhp = _hp;
 	}
 	
 	void Update () {
@@ -31,6 +38,8 @@ public class Tank : MonoBehaviour {
 		if(Input.GetMouseButtonDown(0)){
 			Fire();
 		}
+
+		hpbar.value = _curhp / _hp;
 	}
 	void Move(){
 		v = Input.GetAxis ("Vertical");
@@ -60,7 +69,9 @@ public class Tank : MonoBehaviour {
 		//bt.GetComponent<Rigidbody> ().velocity = transform.TransformDirection (Vector3.right * bulletSpeed );
 		bt.gameObject.GetComponent<Rigidbody>().AddForce (tubeObj.transform.forward * bulletSpeed);
 	}
-
+	public void GetHurt(){
+		_curhp -= bulletDamage;
+	}
 
 
 }

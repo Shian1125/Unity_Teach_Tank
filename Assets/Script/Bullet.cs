@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour {
 	void OnCollisionEnter(Collision obj){
 		if(obj.collider.tag == "Tank"){
 			// -hp
+			obj.gameObject.GetComponent<Tank>().GetHurt();
 		}
 		Destroy (gameObject);
 	}
