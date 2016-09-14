@@ -10,10 +10,10 @@ public class Test02 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
-	void ThisIsTest02(){
+	public float ThisIsTest02(){
 			Debug.Log("I'm Test02");
-
+			return 100.2f;
 	}
 }

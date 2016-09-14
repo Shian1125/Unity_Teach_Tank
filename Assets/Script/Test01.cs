@@ -15,9 +15,11 @@ GameObject obj1;
 	}
 	void CallTest02(){
 		//GameObject t2 = GameObject.Find("Test02");
-		Test02 t2 = GameObject.Find("Test02").GetComponent<Test02>();
+		Test02 t2 = GameObject.Find("B").GetComponent<Test02>();
 				
 		Debug.Log(t2.gameObject.name);
+
+		t2.ThisIsTest02();
 	}
 }
 
